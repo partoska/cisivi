@@ -56,6 +56,13 @@ CSV
 printf 'ship;captain\r\nDefiant;Sisko\r\n"Rio Grande";"Dax; Jadzia"\r\n' > "$TMP/semi.csv"
 printf 'log,"stardate, local"\n"first\nsecond",41153.7\n' > "$TMP/log.csv"
 
+cat > "$TMP/emoji.csv" <<'CSV'
+name,mood
+smile 😀,happy
+family 👨‍👩‍👧,"busy, 🎉"
+heart ❤️,warm
+CSV
+
 # edit NAME [SOURCE]: a fresh copy of crew.csv, or SOURCE, to edit in place
 edit() {
     cp "$TMP/${2:-crew}.csv" "$TMP/$1.csv"
@@ -235,6 +242,21 @@ first\\nsecond  41153.7" "$CISIVI" -t . "$TMP/log.csv"
 expect "table without header" 0 "#0  #1
 --  --
 a   b" sh -c "printf 'a,b\n' | \"$CISIVI\" -n -t"
+# Emoji pass through as bytes, given in files and pipes; -t aligns UTF-8
+# characters, not terminal cells, so only its cells are compared.
+EMOJI="$TMP/emoji.csv"
+expect "emoji column" 0 "smile 😀
+family 👨‍👩‍👧
+heart ❤️" "$CISIVI" name "$EMOJI"
+expect "emoji round trip" 0 "$(cat "$EMOJI")" "$CISIVI" . "$EMOJI"
+expect "emoji from stdin" 0 "busy, 🎉" sh -c "\"$CISIVI\" '[1].mood' < \"$EMOJI\""
+expect "emoji filtered" 0 "heart ❤️" "$CISIVI" -f mood=warm name "$EMOJI"
+expect "emoji json" 0 "[
+  {\"name\": \"family 👨‍👩‍👧\", \"mood\": \"busy, 🎉\"}
+]" "$CISIVI" -j '[1]' "$EMOJI"
+expect "emoji table" 0 "smile 😀
+family 👨‍👩‍👧
+heart ❤️" sh -c "\"$CISIVI\" -t name \"$EMOJI\" | tail -n +3"
 expect "exclusive formats" 2 "" "$CISIVI" -j -t . "$CREW"
 expect "null" 0 "Kirk|Spock|" sh -c "\"$CISIVI\" -0 '[:2].name' \"$CREW\" | tr '\\000' '|'"
 
@@ -354,10 +376,10 @@ expect "write json" 2 "" "$CISIVI" -w -j -s 1 age "$CREW"
 expect "write unwritable" 2 "" "$CISIVI" -w -s 1 age /
 
 expect "unknown option" 2 "" "$CISIVI" --nope
-expect "version" 0 "cisivi 1.0.0" "$CISIVI" --version
-expect "help banner" 0 "Cisivi v1.0.0, <https://lab.partoska.com/cisivi>
+expect "version" 0 "cisivi 1.0.1" "$CISIVI" --version
+expect "help banner" 0 "Cisivi v1.0.1, <https://lab.partoska.com/cisivi>
 Copyright (C) 2026 Fabrika Charvat s.r.o. All rights reserved.
-Licensed under the MIT License." sh -c "\"$CISIVI\" --help | sed -n '7,9p'"
+Licensed under the MIT License." sh -c "\"$CISIVI\" --help | sed -n '6,8p'"
 
 echo
 echo "$COUNT tests, $FAILURES failed"

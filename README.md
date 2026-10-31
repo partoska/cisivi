@@ -4,7 +4,7 @@
 
 # Cisivi
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/partoska/cisivi/releases/tag/v1.0.0)
+[![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](https://github.com/partoska/cisivi/releases/tag/v1.0.1)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE.txt)
 [![Build](https://github.com/partoska/cisivi/actions/workflows/build.yml/badge.svg)](https://github.com/partoska/cisivi/actions/workflows/build.yml)
 [![npm](https://img.shields.io/npm/v/@partoska/cisivi.svg)](https://www.npmjs.com/package/@partoska/cisivi)

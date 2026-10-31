@@ -1,6 +1,6 @@
 {
   "name": "@partoska/cisivi-darwin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "macOS (universal) native binary for @partoska/cisivi.",
   "os": [
     "darwin"

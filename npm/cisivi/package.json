@@ -1,6 +1,6 @@
 {
   "name": "@partoska/cisivi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Query and edit CSV files from the command line.",
   "bin": {
     "cisivi": "bin/cisivi.js"
@@ -10,11 +10,11 @@
     "README.md"
   ],
   "optionalDependencies": {
-    "@partoska/cisivi-darwin": "1.0.0",
-    "@partoska/cisivi-linux-x64": "1.0.0",
-    "@partoska/cisivi-linux-arm64": "1.0.0",
-    "@partoska/cisivi-win32-x64": "1.0.0",
-    "@partoska/cisivi-win32-arm64": "1.0.0"
+    "@partoska/cisivi-darwin": "1.0.1",
+    "@partoska/cisivi-linux-x64": "1.0.1",
+    "@partoska/cisivi-linux-arm64": "1.0.1",
+    "@partoska/cisivi-win32-x64": "1.0.1",
+    "@partoska/cisivi-win32-arm64": "1.0.1"
   },
   "engines": {
     "node": ">=18"

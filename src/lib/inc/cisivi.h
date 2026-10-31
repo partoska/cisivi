@@ -39,7 +39,7 @@
  * Macros
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#define CS_VERSION "1.0.0"
+#define CS_VERSION "1.0.1"
 #define CS_ERROR_MAX (256)
 #define CS_READ_ERROR (~(CSSize)0)
 #define CS_COLUMN_NONE ((CSSize) - 1)

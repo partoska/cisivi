@@ -37,12 +37,22 @@
 #include <string.h>
 
 #ifdef _WIN32
+#define WIN32_LEAN_AND_MEAN
 #include <fcntl.h>
 #include <io.h>
+#include <windows.h>
 #endif
 
 #include "cisivi.h"
 #include "plat.h"
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Definitions - Variables
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#ifdef _WIN32
+static CSDword cscConsolePage;
+#endif
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Definitions - Strings
@@ -160,6 +170,14 @@ cscMemFree (CSVoid *ptr)
  * Definitions - Streams
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+#ifdef _WIN32
+static void
+cscConsoleRestore (void)
+{
+  SetConsoleOutputCP (cscConsolePage);
+}
+#endif
+
 void
 cscStreamInit (void)
 {
@@ -168,6 +186,16 @@ cscStreamInit (void)
   // standard streams carry the same bytes as csSave() and other platforms.
   _setmode (_fileno (stdin), _O_BINARY);
   _setmode (_fileno (stdout), _O_BINARY);
+
+  // A console shows the UTF-8 it is given only in its UTF-8 code page; the
+  // one it had comes back at exit, so the shell keeps its own. Without a
+  // console the page reads as 0 and nothing changes.
+  CSDword page = GetConsoleOutputCP ();
+  if (page != 0 && page != CP_UTF8 && SetConsoleOutputCP (CP_UTF8))
+    {
+      cscConsolePage = page;
+      atexit (cscConsoleRestore);
+    }
 #endif
 }
 

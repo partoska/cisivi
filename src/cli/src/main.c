@@ -169,11 +169,10 @@ typedef struct CSCOrder
 static void
 cscLogo (void)
 {
-  cscPrint ("      _       _ _      _\n"
-            " ____(_) ___ (_|_)  __(_)\n"
-            "/ __/ / (_-</ / | |/ / /\n"
-            "\\__/_( )___/_( )|___/_/\n"
-            "     |/      |/\n"
+  cscPrint ("      _     _      _\n"
+            " ____(_)__ (_)  __(_)\n"
+            "/ __/ (_-</ / |/ / /\n"
+            "\\__/_/___/_/|___/_/\n"
             "\n"
             "Cisivi v" CS_VERSION ", <https://lab.partoska.com/cisivi>\n"
             "Copyright (C) 2026 Fabrika Charvat s.r.o. All rights reserved.\n"
