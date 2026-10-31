@@ -1,0 +1,13 @@
+Cisivi (cisivi)
+
+This package will place the cisivi command-line tool into /usr/bin,
+and the libcisivi library with its headers into /usr/lib and /usr/include.
+
+Cisivi is a small, minimal CSV library and query tool. The cisivi
+command reads CSV files and prints the columns, rows and values asked
+for, filtered and sorted, as CSV, JSON or an aligned table, so that shell
+scripts and pipelines can read and edit tables safely, quoted commas and
+line breaks included. The library, libcisivi, reads and writes the same
+CSV text from C.
+
+After installation, run "cisivi -h" in a terminal to get started.

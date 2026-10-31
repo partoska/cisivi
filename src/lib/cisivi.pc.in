@@ -1,0 +1,10 @@
+prefix=${pcfiledir}/@PL_PC_PREFIX@
+libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
+includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
+
+Name: cisivi
+Description: Small, minimal CSV reader and writer
+URL: https://lab.partoska.com/cisivi
+Version: @PROJECT_VERSION@
+Libs: -L${libdir} -l@PL_LIB_NAME@
+Cflags: -I${includedir}

@@ -1,0 +1,16 @@
+<!--
+  Cisivi - Small, minimal CSV library and query tool.
+  Copyright (C) 2026 Fabrika Charvat s.r.o. All rights reserved.
+  Developed by Partoska Laboratory team, <https://lab.partoska.com>
+
+  MIT License, see LICENSE.txt.
+
+  Adds the bin directory of the MSI installation to the system PATH (the
+  NSIS installer asks instead); CM_CP_bin.cisivi.exe is the component CPack
+  generates for bin/cisivi.exe.
+-->
+<CPackWiXPatch>
+  <CPackWiXFragment Id="CM_CP_bin.cisivi.exe">
+    <Environment Id="CisiviPath" Name="PATH" Value="[INSTALL_ROOT]bin" Action="set" Part="last" Permanent="no" System="yes"/>
+  </CPackWiXFragment>
+</CPackWiXPatch>

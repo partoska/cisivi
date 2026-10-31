@@ -1,0 +1,5 @@
+interface:
+  display_name: "cisivi"
+  short_description: "Query, filter and edit CSV files from the shell with the cisivi CLI"
+  icon_large: "./assets/logo.png"
+  default_prompt: "Use $cisivi to construct the exact command or script for my CSV data task."

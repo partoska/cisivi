@@ -1,0 +1,42 @@
+{
+  "name": "@partoska/cisivi",
+  "version": "1.0.0",
+  "description": "Query and edit CSV files from the command line.",
+  "bin": {
+    "cisivi": "bin/cisivi.js"
+  },
+  "files": [
+    "bin/",
+    "README.md"
+  ],
+  "optionalDependencies": {
+    "@partoska/cisivi-darwin": "1.0.0",
+    "@partoska/cisivi-linux-x64": "1.0.0",
+    "@partoska/cisivi-linux-arm64": "1.0.0",
+    "@partoska/cisivi-win32-x64": "1.0.0",
+    "@partoska/cisivi-win32-arm64": "1.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/partoska/cisivi.git"
+  },
+  "homepage": "https://lab.partoska.com/cisivi",
+  "bugs": {
+    "url": "https://github.com/partoska/cisivi/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "csv",
+    "tsv",
+    "json",
+    "query",
+    "cli",
+    "shell"
+  ]
+}

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+<title>Cisivi</title>
+<defs>
+<linearGradient id="pool" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#2FD3E0"/>
+  <stop offset="1" stop-color="#0A78A8"/>
+</linearGradient>
+<pattern id="dots" patternUnits="userSpaceOnUse" x="0" y="0" width="48" height="48">
+  <rect width="48" height="48" fill="#FFD43B"/>
+  <circle cx="12" cy="12" r="7" fill="#FFFFFF"/>
+  <circle cx="36" cy="36" r="7" fill="#FFFFFF"/>
+</pattern>
+<clipPath id="tile"><rect x="100" y="100" width="824" height="824" rx="186" ry="186"/></clipPath>
+</defs>
+<g clip-path="url(#tile)">
+<rect x="100" y="100" width="824" height="824" fill="url(#pool)"/>
+</g>
+<g fill="#0B2A4A" stroke="#0B2A4A" stroke-width="44" stroke-linejoin="round">
+<path transform="translate(284 290)" d="M287.03,88.99 A150,150 0 0 0 0,150 L0,270 A150,150 0 0 0 287.03,331.01 L192.02,288.71 A46,46 0 0 1 104,270 L104,150 A46,46 0 0 1 192.02,131.29 Z"/>
+<path transform="translate(620 290)" d="M0,225.6 L120,225.6 L120,345.6 L0,345.6 ZM50.4,344.6 L120,344.6 L60,420 L0,420 Z"/>
+</g>
+<g fill="url(#dots)">
+<path transform="translate(284 290)" d="M287.03,88.99 A150,150 0 0 0 0,150 L0,270 A150,150 0 0 0 287.03,331.01 L192.02,288.71 A46,46 0 0 1 104,270 L104,150 A46,46 0 0 1 192.02,131.29 Z"/>
+</g>
+<g fill="#FFFFFF">
+<path transform="translate(620 290)" d="M0,225.6 L120,225.6 L120,345.6 L0,345.6 ZM50.4,344.6 L120,344.6 L60,420 L0,420 Z"/>
+</g>
+</svg>
